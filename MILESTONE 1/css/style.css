@@ -217,6 +217,11 @@ header .icon i {
 	color: #b6b9bb;
 	margin-top: 10px;
 }
+
+.active {
+	border-bottom-color: transparent;
+	background: #e9ebeb;
+}
 /* FINE CONTATTI */
 
 /* SEZIONE MESSAGGI */

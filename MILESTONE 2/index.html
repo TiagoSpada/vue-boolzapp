@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app" class="container">
+			<div class="row">
+				<div class="sidebar">
+					<header class="header-left">
+						<div class="header-left-logo">
+							<img src="img/avatar_1.jpg" alt="Utente" class="img-profile" />
+							<span class="name">Nome</span>
+						</div>
+						<div class="icon">
+							<i class="fas fa-circle-notch"></i>
+							<i class="fas fa-message"></i>
+							<i class="fas fa-ellipsis-vertical"></i>
+						</div>
+					</header>
+					<div class="notification-on">
+						<i class="fas fa-bell-slash"></i>
+						<h3>
+							Ricevi notifiche di nuovi messaggi
+							<br /><a href="">Attiva notifiche desktop</a>
+						</h3>
+					</div>
+					<div class="left-searchbar">
+						<label class="search-label" for="search">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</label>
+						<input
+							id="contacts-filter"
+							class="left-searchbar-input"
+							placeholder="Cerca o inizia una nuova chat"
+							name="search"
+						/>
+					</div>
+					<div class="contacts">
+						<div
+							class="contact"
+							v-for="(contact, index) in contacts"
+							:class="activeContact(index)"
+							@click="showMessage(index)"
+						>
+							<div class="contact-logo">
+								<img :src="contact.avatar" alt="Utente" />
+							</div>
+							<div class="contact-info">
+								<h3>
+									<span class="contact-name">{{contact.name}}</span>
+									<span class="time f-right">data</span>
+								</h3>
+								<small>ultimo messaggio</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content">
+					<header>
+						<div>
+							<img src="./img/avatar_6.jpg" alt="" class="img-profile" />
+							<div class="name">
+								Marta <br />
+								<span>Ultimo accesso oggi alle 16:26</span>
+							</div>
+						</div>
+						<div class="icon">
+							<i class="fas fa-magnifying-glass"></i>
+							<i class="fas fa-paperclip"></i>
+							<i class="fas fa-ellipsis-vertical"></i>
+						</div>
+					</header>
+					<div class="conversation">
+						<div
+							class="message-container"
+							v-for="(contact, index) in contacts"
+							v-show="currentContact=== index"
+						>
+							<div class="message" v-for="(message, i) in contact.messages">
+								<div
+									:class="[stateMessage(message.status) ? 'myMessage' : 'contactMessage']"
+								>
+									<div class="message-inner">
+										<div class="text-message">{{message.message}}</div>
+										<div class="message-option">
+											<i class="fas fa-angle-down"></i>
+										</div>
+									</div>
+									<div class="text-date">ora</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer">
+						<div class="footer-icon f-left">
+							<i class="far fa-smile"></i>
+						</div>
+						<input
+							class="new-message-inputs"
+							placeholder="Scrivi un messaggio"
+						/>
+						<div class="footer-icon f-right">
+							<i class="fa fa-microphone" aria-hidden="true"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- VUE -->
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<!-- JS -->
+		<script src="js/main.js"></script>
+	</body>
+</html>
