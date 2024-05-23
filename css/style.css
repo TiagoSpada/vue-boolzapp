@@ -201,6 +201,10 @@ header .icon i {
 .contacts .contact .contact-info h3 {
 	font-size: 17px;
 	font-weight: normal;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 2px;
 }
 
 .contacts .contact .contact-info span.f-right {

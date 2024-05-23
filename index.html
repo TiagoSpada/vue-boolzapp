@@ -53,16 +53,16 @@
 						/>
 					</div>
 					<div class="contacts">
-						<div class="contact">
+						<div class="contact" v-for="(contact, index) in contacts">
 							<div class="contact-logo">
-								<img src="img/avatar_1.jpg" alt="Utente" />
+								<img :src="contact.avatar" alt="Utente" />
 							</div>
 							<div class="contact-info">
 								<h3>
-									<span class="contact-name">Nome contatto</span>
-									<span class="time f-right"></span>
+									<span class="contact-name">{{contact.name}}</span>
+									<span class="time f-right">data</span>
 								</h3>
-								<small></small>
+								<small>ultimo messaggio</small>
 							</div>
 						</div>
 					</div>
@@ -83,12 +83,20 @@
 						</div>
 					</header>
 					<div class="conversation">
-						<div class="message-container">
+						<!-- <div class="message-container">
 							<div class="message">
 								<div class="myMessage">
 									<div class="message-inner">
-										<div class="text-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit perferendis ipsam, natus culpa pariatur eius accusantium illo laudantium dignissimos nesciunt quae, odit similique consequuntur molestiae corporis! Quis expedita dolorum temporibus.</div>
-										<div class="message-option"><i class="fas fa-angle-down"></i></div>
+										<div class="text-message">
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Velit perferendis ipsam, natus culpa pariatur eius
+											accusantium illo laudantium dignissimos nesciunt quae,
+											odit similique consequuntur molestiae corporis! Quis
+											expedita dolorum temporibus.
+										</div>
+										<div class="message-option">
+											<i class="fas fa-angle-down"></i>
+										</div>
 									</div>
 									<div class="text-date">12:46</div>
 								</div>
@@ -96,26 +104,38 @@
 							<div class="message">
 								<div class="contactMessage">
 									<div class="message-inner">
-										<div class="text-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit perferendis ipsam.</div>
-										<div class="message-option"><i class="fas fa-angle-down"></i></div>
+										<div class="text-message">
+											Lorem ipsum dolor sit amet consectetur adipisicing elit.
+											Velit perferendis ipsam.
+										</div>
+										<div class="message-option">
+											<i class="fas fa-angle-down"></i>
+										</div>
 									</div>
 									<div class="text-date">12:46</div>
 								</div>
 							</div>
+						</div> -->
+					</div>
+					<div class="footer">
+						<div class="footer-icon f-left">
+							<i class="far fa-smile"></i>
+						</div>
+						<input
+							class="new-message-inputs"
+							placeholder="Scrivi un messaggio"
+						/>
+						<div class="footer-icon f-right">
+							<i class="fa fa-microphone" aria-hidden="true"></i>
 						</div>
 					</div>
-                    <div class="footer">
-                        <div class="footer-icon f-left">
-                            <i class="far fa-smile"></i>
-                        </div>
-                        <input class="new-message-inputs" placeholder="Scrivi un messaggio" />
-                        <div class="footer-icon f-right">
-                            <i class="fa fa-microphone" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                </div>
 				</div>
 			</div>
 		</div>
+
+		<!-- VUE -->
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<!-- JS -->
+		<script src="js/main.js"></script>
 	</body>
 </html>
