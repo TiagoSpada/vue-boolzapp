@@ -66,7 +66,9 @@
 							<div class="contact-info">
 								<h3>
 									<span class="contact-name">{{contact.name}}</span>
-									<span class="time f-right">data</span>
+									<span class="time f-right"
+										>{{getHour(contact.messages[arrayLength(contact.messages)-1])}}</span
+									>
 								</h3>
 								<small>ultimo messaggio</small>
 							</div>
@@ -108,7 +110,7 @@
 											<i class="fas fa-angle-down"></i>
 										</div>
 									</div>
-									<div class="text-date">ora</div>
+									<div class="text-date">{{getHour(message)}}</div>
 								</div>
 							</div>
 						</div>
@@ -131,6 +133,13 @@
 			</div>
 		</div>
 
+		<!-- LUXON -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"
+			integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
 		<!-- VUE -->
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<!-- JS -->

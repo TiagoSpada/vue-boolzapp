@@ -1,3 +1,4 @@
+const dt = luxon.DateTime;
 const { createApp } = Vue;
 
 createApp({
@@ -166,7 +167,7 @@ createApp({
 					],
 				},
 			],
-			currentContact: 1,
+			currentContact: 0,
 			newMessageText: null,
 			searchContact: "",
 		};
@@ -186,7 +187,7 @@ createApp({
 			if (this.currentContact === null) return;
 
 			const newMessage = {
-				date: "",
+				date: this.setDate(),
 				message: this.newMessageText,
 				status: "sent",
 			};
@@ -198,7 +199,7 @@ createApp({
 		},
 		replyMessage() {
 			const newReply = {
-				date: "",
+				date: this.setDate(),
 				message: "Ok",
 				status: "received",
 			};
@@ -214,6 +215,19 @@ createApp({
 			} else {
 				return this.contacts;
 			}
+		},
+		setDate() {
+			const date = dt.now().setLocale("it").toFormat("dd/MM/y HH:mm:ss");
+			return date;
+		},
+		getHour(message) {
+			const StringDate = message.date;
+			return dt
+				.fromFormat(StringDate, "dd/MM/y HH:mm:ss")
+				.toLocaleString(dt.TIME_24_SIMPLE);
+		},
+		arrayLength(array) {
+			return array.length;
 		},
 	},
 }).mount("#app");
